@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '/logo.png';
 import useAuth from "../../hooks/useAuth";
 
-const Navbar = () => {
+const Navbar = ({ children }) => {
 
     const { user, logOut } = useAuth()
 
@@ -63,9 +63,8 @@ const Navbar = () => {
                                         </div>
                                     </label>
                                     <div tabIndex={0} className="dropdown-content mt-3 z-20 p-4 shadow bg-blue-100 rounded w-48">
-                                        <p className="text-primary font-medium mb-2">{user?.displayName}</p>
+                                        <p className="font-medium mb-2">{user?.displayName}</p>
                                         <button onClick={handleSignOut} className="bg-blue-500 p-2 rounded-lg w-full text-white">Sign Out</button>
-
                                     </div>
                                 </div>
                                 :
@@ -74,7 +73,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 {/* Page content here */}
-                Content
+                {children}
             </div>
             <div className="drawer-side z-20">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>

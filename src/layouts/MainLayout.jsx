@@ -5,8 +5,9 @@ import Footer from "../pages/Shared/Footer";
 const MainLayout = () => {
     return (
         <div className="font-Poppins">
-            <Navbar></Navbar>
-            <Outlet></Outlet>
+            <Navbar>
+                <Outlet></Outlet>
+            </Navbar>
             <Footer></Footer>
         </div>
     );
