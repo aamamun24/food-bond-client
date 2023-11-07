@@ -1,4 +1,5 @@
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
+import RequestModal from './RequestModal';
 
 const FoodDetails = () => {
     const { id } = useParams()
@@ -31,7 +32,8 @@ const FoodDetails = () => {
                     <li>Food Quantity: <span className='text-purple-600 font-bold'>{foodQuantity}</span></li>
                     <li>Expired Date/Time: <span className='text-purple-600 font-bold'>{expiredDateTime}</span></li>
                 </ul>
-                <button className='w-full mt-4 bg-purple-600 hover:bg-purple-800 text-white font-bold py-2 rounded'>Request</button>
+                <button className='w-full mt-4 bg-purple-600 hover:bg-purple-800 text-white font-bold py-2 rounded' onClick={() => document.getElementById('my_modal').showModal()}>Request</button>
+                <RequestModal food={food}></RequestModal>
             </div >
         </div>
     );
