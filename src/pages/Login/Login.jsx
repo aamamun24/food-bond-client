@@ -18,18 +18,14 @@ const Login = () => {
         singIn(email, password)
             .then(result => {
                 console.log(result.user);
-                toast.success('Login Successful', {
-                    theme: "colored",
-                })
+                toast.success('Login Successful')
                 setTimeout(() => {
                     navigate(location?.state ? location.state : '/')
                 }, 2000);
             })
             .catch(error => {
                 console.error(error);
-                toast.error("Email or password does not match.", {
-                    theme: "colored",
-                });
+                toast.error("Email or password does not match.");
             })
     }
 
@@ -37,18 +33,14 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user);
-                toast.success('Login Successful', {
-                    theme: "colored",
-                })
+                toast.success('Login Successful')
                 setTimeout(() => {
                     navigate(location?.state ? location.state : '/')
                 }, 2000);
             })
             .catch(error => {
                 console.error(error);
-                toast.error("Email or password does not match.", {
-                    theme: "colored",
-                });
+                toast.error("Email or password does not match.");
             })
     }
 

@@ -1,4 +1,6 @@
+import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const AddFood = () => {
 
@@ -16,7 +18,31 @@ const AddFood = () => {
 
         const addFood = { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName: user?.displayName, donatorEmail: user?.email, donatorImage: user?.photoURL, foodStatus: 'available' }
         console.log(addFood);
+
+        axios.post('http://localhost:5000/foods', addFood)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                if (err) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
     }
+
     return (
         <div className="bg-gray-100 flex items-center justify-center">
             <div className="my-10 bg-white p-8 rounded shadow-md w-11/12 md:w-2/3">
