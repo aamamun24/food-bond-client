@@ -12,19 +12,17 @@ const Footer = () => {
                 <h2 className='text-center text-xl font-semibold'>Dhaka, Bangladesh</h2>
                 <p className='text-gray-500 flex gap-3'><BiSolidPhoneCall className='text-xl'></BiSolidPhoneCall> +8801794798000</p>
             </div>
-            <nav>
-                <div className="grid grid-flow-col gap-4">
-                    <a href="">
-                        <BiLogoFacebookCircle className='text-3xl'></BiLogoFacebookCircle>
-                    </a>
-                    <a href="">
-                        <BiLogoTwitter className='text-3xl'></BiLogoTwitter>
-                    </a>
-                    <a href="">
-                        <BiLogoInstagramAlt className='text-3xl'></BiLogoInstagramAlt>
-                    </a>
-                </div>
-            </nav>
+            <div className="grid grid-flow-col gap-4">
+                <a href="">
+                    <BiLogoFacebookCircle className='text-3xl'></BiLogoFacebookCircle>
+                </a>
+                <a href="">
+                    <BiLogoTwitter className='text-3xl'></BiLogoTwitter>
+                </a>
+                <a href="">
+                    <BiLogoInstagramAlt className='text-3xl'></BiLogoInstagramAlt>
+                </a>
+            </div>
             <aside>
                 <p>Copyright © 2023 - All right reserved by Food Bond</p>
             </aside>

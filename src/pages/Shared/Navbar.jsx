@@ -1,7 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '/logo.png';
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
+
+    const { user, logOut } = useAuth()
+
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
     const navLinks = <>
         <li>
@@ -24,10 +33,6 @@ const Navbar = () => {
             <NavLink to="/food-request" className={({ isActive }) => isActive ? "text-[#157ED2] underline" : ""
             }>My Food Request</NavLink>
         </li>
-        <li>
-            <NavLink to="/login" className={({ isActive }) => isActive ? "text-[#157ED2] underline" : ""
-            }>Login</NavLink>
-        </li>
     </>
 
     return (
@@ -47,6 +52,25 @@ const Navbar = () => {
                         <ul className="flex gap-5">
                             {navLinks}
                         </ul>
+                    </div>
+                    <div className="ml-4">
+                        {
+                            user ?
+                                <div className="dropdown dropdown-end">
+                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src={user?.photoURL} />
+                                        </div>
+                                    </label>
+                                    <div tabIndex={0} className="dropdown-content mt-3 z-20 p-4 shadow bg-blue-100 rounded w-48">
+                                        <p className="text-primary font-medium mb-2">{user?.displayName}</p>
+                                        <button onClick={handleSignOut} className="bg-blue-500 p-2 rounded-lg w-full text-white">Sign Out</button>
+
+                                    </div>
+                                </div>
+                                :
+                                <Link to='/login' className="bg-blue-500 py-2 px-6 rounded-lg text-white font-medium">Login</Link>
+                        }
                     </div>
                 </div>
                 {/* Page content here */}

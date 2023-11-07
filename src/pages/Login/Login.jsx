@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 import useAuth from "../../hooks/useAuth";
+import loginImage from '../../assets/login.png';
 
 const Login = () => {
     const location = useLocation();
@@ -52,7 +53,10 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="min-h-screen bg-gray-100 flex gap-6 flex-col md:flex-row items-center justify-center">
+            <div>
+                <img className="md:max-w-lg" src={loginImage} alt="loginImage" />
+            </div>
             <div className="bg-white p-8 rounded shadow-md w-11/12 md:w-96">
                 <h2 className="text-xl font-semibold mb-6">Login Your Account</h2>
                 <form onSubmit={handleLogIn}>
