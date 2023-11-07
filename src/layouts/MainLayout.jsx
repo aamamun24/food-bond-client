@@ -1,7 +1,11 @@
+import { Outlet } from "react-router-dom";
+import Navbar from "../pages/Shared/Navbar";
+
 const MainLayout = () => {
     return (
-        <div className="text-7xl text-center">
-            <h2>Food Bond</h2>
+        <div className="font-Poppins">
+            <Navbar></Navbar>
+            <Outlet></Outlet>
         </div>
     );
 };
