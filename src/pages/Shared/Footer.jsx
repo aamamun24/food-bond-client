@@ -5,7 +5,7 @@ import { BiLogoFacebookCircle, BiLogoTwitter, BiLogoInstagramAlt, BiSolidPhoneCa
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <footer className="footer footer-center p-10 bg-base-300 text-base-content rounded">
             <div>
                 <img className='w-12' src={icon} alt="" />
                 <img className='w-48' src={logo} alt="" />
