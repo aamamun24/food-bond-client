@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const FoodTable = ({ food }) => {
+const FoodTable = ({ food, handleDelete }) => {
     const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorEmail, donatorImage, foodStatus } = food;
 
     return (
@@ -19,7 +19,7 @@ const FoodTable = ({ food }) => {
                 </Link>
             </td>
             <th>
-                <button className="btn btn-error btn-sm">Delete</button>
+                <button onClick={() => handleDelete(_id)} className="btn btn-error btn-sm">Delete</button>
             </th>
             <th>
                 <Link to={_id}>
@@ -31,7 +31,8 @@ const FoodTable = ({ food }) => {
 };
 
 FoodTable.propTypes = {
-    food: PropTypes.object
+    food: PropTypes.object,
+    handleDelete: PropTypes.func
 };
 
 export default FoodTable;

@@ -1,6 +1,8 @@
 import FoodTable from './FoodTable';
 import useAuth from '../../hooks/useAuth';
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const ManageFood = () => {
     const { user } = useAuth()
@@ -15,8 +17,35 @@ const ManageFood = () => {
             })
     }, [url])
 
-    return (
+    const handleDelete = id => {
 
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/foods/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = foods.filter(food => food._id !== id)
+                            setFoods(remaining)
+                        }
+                    })
+            }
+        });
+    }
+
+    return (
         <div className="overflow-x-auto my-10">
             <table className="table">
 
@@ -32,7 +61,11 @@ const ManageFood = () => {
 
                 <tbody>
                     {
-                        foods.map(food => <FoodTable key={food._id} food={food}></FoodTable>)
+                        foods.map(food => <FoodTable
+                            key={food._id}
+                            food={food}
+                            handleDelete={handleDelete}
+                        ></FoodTable>)
                     }
                 </tbody>
 

@@ -9,7 +9,7 @@ const UpdateFood = () => {
 
     const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorEmail, donatorImage, foodStatus } = food;
 
-    const handleAddFood = e => {
+    const handleUpdateFood = e => {
         e.preventDefault()
         const form = e.target;
         const foodName = form.foodName.value;
@@ -22,13 +22,13 @@ const UpdateFood = () => {
         const updateFood = { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes }
         console.log(updateFood);
 
-        axios.patch('http://localhost:5000/foods', addFood)
+        axios.patch(`http://localhost:5000/foods/${_id}`, updateFood)
             .then(res => {
                 console.log(res.data);
-                if (res.data.insertedId) {
+                if (res.data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Food added successfully',
+                        text: 'Food Updated successfully',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
@@ -50,7 +50,7 @@ const UpdateFood = () => {
         <div className="bg-gray-100 flex items-center justify-center">
             <div className="my-10 bg-white p-8 rounded shadow-md w-11/12 md:w-2/3">
                 <h1 className="text-2xl text-center font-semibold mb-4">Update Food</h1>
-                <form onSubmit={handleAddFood}>
+                <form onSubmit={handleUpdateFood}>
                     <div className="mb-4">
                         <label className="block text-gray-600 text-sm font-medium mb-2">Food Name</label>
                         <input type="text" name="foodName" defaultValue={foodName} className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200" placeholder="Enter your food name" required />
