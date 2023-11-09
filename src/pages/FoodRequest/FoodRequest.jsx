@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const FoodRequest = () => {
     const { user } = useAuth()
@@ -46,6 +47,9 @@ const FoodRequest = () => {
     return (
         <div className="overflow-x-auto my-10">
             <table className="table">
+                <Helmet>
+                    <title>Food Bond | Food Request</title>
+                </Helmet>
 
                 <thead>
                     <tr>

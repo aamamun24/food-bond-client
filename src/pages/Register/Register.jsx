@@ -2,13 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 import useAuth from "../../hooks/useAuth";
 import registration from '../../assets/user-registration.png';
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 
-
     const { createUser, userUpdatedProfile } = useAuth()
     const navigate = useNavigate()
-
 
     const handleRegister = e => {
         e.preventDefault()
@@ -58,6 +57,9 @@ const Register = () => {
     }
     return (
         <div className="min-h-screen bg-gray-100 flex gap-6 flex-col md:flex-row items-center justify-center">
+            <Helmet>
+                <title>Food Bond | Register</title>
+            </Helmet>
             <div>
                 <img src={registration} alt="registration" />
             </div>

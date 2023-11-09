@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -7,7 +8,7 @@ const UpdateFood = () => {
     const foods = useLoaderData()
     const food = foods.find(food => food._id == id);
 
-    const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorEmail, donatorImage, foodStatus } = food;
+    const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes } = food;
 
     const handleUpdateFood = e => {
         e.preventDefault()
@@ -49,6 +50,9 @@ const UpdateFood = () => {
     return (
         <div className="bg-gray-100 flex items-center justify-center">
             <div className="my-10 bg-white p-8 rounded shadow-md w-11/12 md:w-2/3">
+                <Helmet>
+                    <title>Food Bond | Update Food</title>
+                </Helmet>
                 <h1 className="text-2xl text-center font-semibold mb-4">Update Food</h1>
                 <form onSubmit={handleUpdateFood}>
                     <div className="mb-4">
