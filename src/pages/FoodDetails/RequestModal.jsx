@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const RequestModal = ({ food }) => {
-    const { _id, foodName, foodImage, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorEmail } = food;
+    const { _id, foodName, foodImage, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorEmail, foodStatus } = food;
 
     const { user } = useAuth();
     const navigate = useNavigate();
@@ -21,14 +21,14 @@ const RequestModal = ({ food }) => {
         const foodId = form.foodId.value;
         const donatorEmail = form.donatorEmail.value;
         const donatorName = form.donatorName.value;
-        const userEmail = form.userEmail.value;
+        const requesterEmail = form.userEmail.value;
         const requestDate = form.requestDate.value;
         const pickupLocation = form.pickupLocation.value;
         const expiredDateTime = form.expiredDateTime.value;
         const additionalNotes = form.additionalNotes.value;
         const donationAmount = form.donationAmount.value;
 
-        const requestFood = { foodName, foodImage, foodId, donatorEmail, donatorName, userEmail, requestDate, pickupLocation, expiredDateTime, additionalNotes, donationAmount };
+        const requestFood = { foodName, foodImage, foodId, donatorEmail, donatorName, requesterEmail, requesterImage: user.photoURL, requesterName: user?.displayName, requestDate, pickupLocation, expiredDateTime, additionalNotes, donationAmount, foodStatus };
 
         console.log(requestFood);
 
@@ -104,7 +104,7 @@ const RequestModal = ({ food }) => {
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-600 text-sm font-medium mb-2">Donation Money</label>
-                            <input type='text' name="donationAmount" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200" placeholder="Donation Amount" />
+                            <input type='text' name="donationAmount" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200" placeholder="Donation Amount" required/>
                         </div>
 
                         <button

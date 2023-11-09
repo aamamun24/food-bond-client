@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const FoodTable = ({ food, handleDelete }) => {
-    const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorEmail, donatorImage, foodStatus } = food;
+    const { _id, foodName, foodImage } = food;
 
     return (
-
         <tr>
             <td>
                 <img className='rounded w-24  object-cover' src={foodImage} alt={foodName} />
