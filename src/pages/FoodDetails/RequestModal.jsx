@@ -32,7 +32,7 @@ const RequestModal = ({ food }) => {
 
         console.log(requestFood);
 
-        axios.post('http://localhost:5000/food-request', requestFood)
+        axios.post('https://food-bond-server.vercel.app/food-request', requestFood)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
@@ -104,7 +104,7 @@ const RequestModal = ({ food }) => {
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-600 text-sm font-medium mb-2">Donation Money</label>
-                            <input type='text' name="donationAmount" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200" placeholder="Donation Amount" required/>
+                            <input type='text' name="donationAmount" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200" placeholder="Donation Amount" required />
                         </div>
 
                         <button

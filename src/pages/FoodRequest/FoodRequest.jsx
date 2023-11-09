@@ -4,11 +4,13 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 const FoodRequest = () => {
     const { user } = useAuth()
-    const url = `http://localhost:5000/food-request?requesterEmail=${user.email}`
+    const url = `https://food-bond-server.vercel.app/food-request?requesterEmail=${user.email}`
     const [requestFoods, setRequestFoods] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch(url)
@@ -29,7 +31,7 @@ const FoodRequest = () => {
             confirmButtonText: "Yes, Cancel it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/food-request/${id}`)
+                axios.delete(`https://food-bond-server.vercel.app/food-request/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -37,12 +39,12 @@ const FoodRequest = () => {
                                 text: "Your food request has been canceled.",
                                 icon: "success"
                             });
+                            navigate('/')
                         }
                     })
             }
         });
     }
-
 
     return (
         <div className="overflow-x-auto my-10">

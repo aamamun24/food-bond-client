@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 
 const AvailableFood = () => {
     const availableFoods = useLoaderData()
-    const [searchTerm, setSearchTerm] = useState('');
     const [foods, setFoods] = useState(availableFoods)
+    
     // const [requestFoods, setRequestFoods] = useState([])
     // const foods = availableFoods.filter(food => food.foodStatus === 'available');
     // console.log(foods);
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/food-request')
+    //     fetch('https://food-bond-server.vercel.app/food-request')
     //         .then(res => res.json())
     //         .then(data => setRequestFoods(data))
     // }, [])

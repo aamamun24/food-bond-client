@@ -12,7 +12,7 @@ const ManageFoodCard = () => {
     const handleDeliver = (id) => {
         const updateStatus = { foodStatus: 'delivered' }
 
-        axios.put(`http://localhost:5000/food-request/${id}`, updateStatus)
+        axios.put(`https://food-bond-server.vercel.app/food-request/${id}`, updateStatus)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {

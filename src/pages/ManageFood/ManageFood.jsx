@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet-async';
 
 const ManageFood = () => {
     const { user } = useAuth()
-    const url = `http://localhost:5000/foods?donatorEmail=${user.email}`
+    const url = `https://food-bond-server.vercel.app/foods?donatorEmail=${user.email}`
     const [foods, setFoods] = useState([])
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const ManageFood = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/foods/${id}`)
+                axios.delete(`https://food-bond-server.vercel.app/foods/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({

@@ -23,7 +23,7 @@ const UpdateFood = () => {
         const updateFood = { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes }
         console.log(updateFood);
 
-        axios.patch(`http://localhost:5000/foods/${_id}`, updateFood)
+        axios.patch(`https://food-bond-server.vercel.app/foods/${_id}`, updateFood)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {

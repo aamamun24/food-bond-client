@@ -20,7 +20,7 @@ const AddFood = () => {
         const addFood = { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName: user?.displayName, donatorEmail: user?.email, donatorImage: user?.photoURL, foodStatus: 'available' }
         console.log(addFood);
 
-        axios.post('http://localhost:5000/foods', addFood)
+        axios.post('https://food-bond-server.vercel.app/foods', addFood)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AvailableFoodCard = ({ food }) => {
 
-    const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorImage,} = food;
+    const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorImage, } = food;
 
     return (
         <div className="bg-white flex flex-col shadow-md rounded-lg p-6">

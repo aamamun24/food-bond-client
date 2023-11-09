@@ -38,12 +38,12 @@ const router = createBrowserRouter([
             {
                 path: '/available-food',
                 element: <AvailableFood />,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://food-bond-server.vercel.app/foods')
             },
             {
                 path: '/available-food/:id',
                 element: <PrivateRoute><FoodDetails></FoodDetails></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://food-bond-server.vercel.app/foods')
             },
             {
                 path: '/manage-food',
@@ -52,12 +52,12 @@ const router = createBrowserRouter([
             {
                 path: '/manage-food/:id',
                 element: <PrivateRoute><ManageFoodCard /></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/food-request')
+                loader: () => fetch('https://food-bond-server.vercel.app/food-request')
             },
             {
                 path: '/update-food/:id',
                 element: <PrivateRoute><UpdateFood /></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://food-bond-server.vercel.app/foods')
             },
             {
                 path: '/food-request',
