@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const AvailableFoodCard = ({ food }) => {
-
-    const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorImage,} = food;
+const FeaturedFoodCard = ({ food }) => {
+    const { _id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorName, donatorImage, foodStatus } = food;
 
     return (
         <div className="bg-white flex flex-col shadow-md rounded-lg p-6">
@@ -29,15 +28,16 @@ const AvailableFoodCard = ({ food }) => {
                 <li>Expired Date/Time: <span className='text-purple-600 font-bold'>{expiredDateTime}</span></li>
             </ul>
             <p className='text-justify mt-4 flex-grow'><span className='font-bold'>Additional Notes:</span> {additionalNotes}</p>
-            <Link to={`${_id}`}>
+            <Link to={`available-food/${_id}`}>
                 <button className='w-full mt-4 bg-purple-600 hover:bg-purple-800 text-white font-bold py-2 rounded'>View Details</button>
             </Link>
         </div >
     );
 };
 
-AvailableFoodCard.propTypes = {
+FeaturedFoodCard.propTypes = {
     food: PropTypes.object
 };
 
-export default AvailableFoodCard;
+
+export default FeaturedFoodCard;

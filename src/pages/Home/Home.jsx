@@ -1,9 +1,15 @@
 import Banner from "./Banner";
+import FeaturedFood from "./FeaturedFood";
+import Impact from "./Impact";
+import Volunteer from "./Volunteer";
 
 const Home = () => {
     return (
         <div>
-            <Banner/>
+            <Banner />
+            <FeaturedFood />
+            <Impact />
+            <Volunteer />
         </div>
     );
 };
