@@ -1,5 +1,5 @@
 ## Fond Bond
-[https://food-bond.web.app/](https://food-bond.web.app/)
+[Food Bond](https://food-bond.web.app/)
 
 
 ## Features of the project
